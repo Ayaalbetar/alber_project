@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{%  load static %}
+{%  block content1%}بطاقة صحية {% endblock%}
+{% block content %}
+<style type="text/css">
+	body{
+		background-image:url('{% static 'assets/img/hero-bg.jpg' %}');
+        background-size:100% 100%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+	}
+</style>
+{% if messages %}
+        {% for msg in messages%}   <br>  <br>  <br>
+        <div class="alert alert-info" role="alert" style="width:50%,">
+
+      <h4  style="text-align:center" class="alert-heading">أهلا بك </h4>
+       <p style="text-align:center  "> {{msg}}</p>
+        {% endfor%}</div>
+        {% endif%}
+<br><br><br>
+
+<br><br>
+
+<hr>
+<div class="container bootstrap snippet">
+    <div>
+      <img title="profile image" class="img-circle img-responsive pull-right" src="{% static 'assets/img/a.jfif' %}">
+      <h1>طلب بطاقة صحية</h1>
+    </div>
+    <form class="form" a method="post" id="registrationForm">
+         {% csrf_token %}
+    <div class="row">
+      <div class="col-sm-3"><!--left col-->
+
+
+      <div class="text-center">
+        <img src="{% static 'assets/img/patient.jpg' %}" class="avatar img-circle img-thumbnail" alt="avatar">
+      </div></hr><br>
+
+          <ul class="list-group">
+            <li class="list-group-item te text-center"><b> الوثائق المطلوبة </b><i class="fa fa-dashboard fa-1x"></i></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">صورة هوية مقدم الطلب</span> <input type="file" class="text-center center-block file-upload" name="f1" required ></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">وثيقة غير موظف للأب</span> <input type="file" class="text-center center-block file-upload" name="f3" required></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">وثيقة غير موظف للأم</span> <input type="file" class="text-center center-block file-upload" name="f4" required></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">بيان بالراتب للأب<div class="text-danger">
+              <b><u>إن وجد </u></b></div>
+            </span> <input type="file" class="text-center center-block file-upload" name="f5" required></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">بيان بالراتب للأم<div class="text-danger">
+              <b><u>إن وجد </u></b></div>
+            </span> <input type="file" class="text-center center-block file-upload" name="f6" required></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">بيان عائلي
+            </span> <input type="file" class="text-center center-block file-upload" name="f7" required></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">وثيقة نفي ملكية
+            </span> <input type="file" class="text-center center-block file-upload" name="f8" required></li>
+
+            <li class="list-group-item text-right"><span class="pull-left">عقد ايجار المنزل
+            </span> <input type="file" class="text-center center-block file-upload" name="f9" required></li>
+
+          </ul>
+
+
+
+        </div><!--/col-3-->
+      <div class="col-sm-9">
+                <hr>
+                <table dir="rtl" class="table text-right table-borderless container" >
+
+                      <tr>
+ 		<td>
+ 			<div class="form-group form-inline">
+             <label for="fathername">اسم الأب</label>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" class="form-control" name="name" id="fathername" required/>
+           </div>
+ 		</td>
+ 		<td>
+ 			<div class="form-group form-inline">
+            <label for="family">عدد الأبناء</label>
+            <input type="number" class="form-control"  name="countch" id="family" required/>
+            </div>
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<div class="form-group form-inline">
+             <label for="fathername2">نسبة الأب</label>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" class="form-control" name="fatherln" id="fathername2" required/>
+           </div>
+ 		</td>
+ 		<td>
+ 			<div class="form-group form-inline">
+        <label for="id">الرقم الوطني</label>
+    &nbsp;&nbsp;&nbsp;
+            <input type="number" class="form-control"   name="id" id="id"  required/>
+            </div>
+            </div>
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<div class="form-group form-inline">
+             <label for="mothername">اسم الأم</label>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" class="form-control" name="mothername" id="mothername" required/>
+           </div>
+ 		</td>
+ 		<td>
+ 			<div class="form-group form-inline">
+             <label for="email">إيميل</label>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="email" class="form-control" name="email" id="email" required/>
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<div class="form-group form-inline">
+             <label for="mothername2">نسبة الأم</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" class="form-control" name="motherln" id="mothername2" required/>
+           </div>
+ 		</td>
+ 		<td>
+ 			<div class="form-group form-inline">
+            <label for="phone">الهاتف</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="tel" class="form-control"  name="phone" id="phone" required/>
+            </div>
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+      <div class="form-group form-inline">
+            <label for="Textarea1">العنوان بالنفصيل</label>
+            <textarea class="form-control" id="Textarea1" name="addres"  required rows="2"></textarea>
+            </div>
+ 		</td>
+ 		<td>
+ 		</td>
+ 	</tr>
+          </div>
+               </table>
+    <div class="form-group">
+
+    <br>
+    <button class="btn btn-lg btn-info" type="submit"><i class="glyphicon glyphicon-ok-sign">ارسال</i></button>
+    <button class="btn btn-lg" name="btnsign" type="reset"><i class="glyphicon glyphicon-repeat"></i>اعادة الطلب</button>
+
+    </div>
+   </div>
+
+
+
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+</td></tr></div></td></tr>
+
+</form>
+</div>
+
+{% endblock %}

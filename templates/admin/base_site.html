@@ -1,0 +1,36 @@
+{% extends 'admin/base.html ' %}
+{% load static %}
+{% block title %}
+
+جمعية البر والخدمات الاجتماعية {% endblock%}
+{% block branding%}
+<h1 id="head">
+    <img src="{% static 'img/a.jfif' %}"  alt="alber"   height="30px">
+    إدارة جمعية البر
+
+</h1>
+
+{% endblock %}
+{% block usertools %}
+<div id="user-tools">
+
+                أهلا،
+                <strong>aya</strong>.
+                    <a href="/">عرض الموقع</a> /
+                <a href="/admin/password_change/">غيّر كلمة المرور</a> /
+                <a href="/admin/logout/">تسجيل الخروج</a>/
+               <a href="{% url 'contact'%}"> أرسل الايميل</a>
+
+        </div>
+
+{% endblock %}
+
+{% block person-form%}
+
+{% endblock%}
+
+{% block extrastyle%}
+<link rel="stylesheet"href="{% static 'css/admin.css'%}">
+
+
+{% endblock%}

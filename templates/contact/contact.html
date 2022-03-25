@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content1 %} جمعية البر والخدمات الاجتماعية{%endblock%}
+{%  block content %}
+
+<section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>تواصل مع </h2>
+
+        </div>
+
+
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>حمص -الحميدية</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>albirr2000albir@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>09 76546578</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+         <form  method="POST"    id="registrationForm"  enctype="multipart/form-data">
+                   {% csrf_token %}
+
+              <div class="form-group">
+                <input type="text"  name="subject"  placeholder="Subject"   />
+{{x}}
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message"   placeholder="Message"></textarea>
+
+              </div>
+
+              <div class="text-center"><button  name='btnsign'  type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+{% endblock%}
